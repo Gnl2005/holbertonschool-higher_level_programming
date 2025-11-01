@@ -5,7 +5,6 @@ Print all names from hidden_4.pyc that do not start with '__'
 """
 
 if __name__ == "__main__":
-    import dis
     import marshal
     import types
 
