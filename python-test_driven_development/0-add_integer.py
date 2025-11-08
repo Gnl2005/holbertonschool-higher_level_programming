@@ -13,8 +13,8 @@ def add_integer(a, b=98):
         raise TypeError("b must be an integer")
 
     if (a != a or b != b or
-        a in (float('inf'), float('-inf')) or
-        b in (float('inf'), float('-inf'))):
+            a in (float('inf'), float('-inf')) or
+            b in (float('inf'), float('-inf'))):
         if a != a or b != b:
             raise ValueError("cannot convert float NaN to integer")
         else:
