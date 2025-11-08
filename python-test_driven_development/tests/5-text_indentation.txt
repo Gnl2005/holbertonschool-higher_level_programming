@@ -1,0 +1,70 @@
+>>> text_indentation = __import__('5-text_indentation').text_indentation
+>>> text_indentation("Holberton. School? How are you: John")
+Holberton.
+<BLANKLINE>
+School?
+<BLANKLINE>
+How are you:
+<BLANKLINE>
+John
+
+# Test with no space after a delimiter
+>>> text_indentation("Holberton.School")
+Holberton.
+<BLANKLINE>
+School
+
+# Test with a delimiter at the end of the string
+>>> text_indentation("This is the end.")
+This is the end.
+<BLANKLINE>
+
+# Test with multiple spaces around delimiters
+>>> text_indentation("First.  Second?   Third:    Fourth")
+First.
+<BLANKLINE>
+Second?
+<BLANKLINE>
+Third:
+<BLANKLINE>
+Fourth
+
+# Test with no delimiters
+>>> text_indentation("This sentence has no special characters")
+This sentence has no special characters
+
+# Test with an empty string
+>>> text_indentation("")
+
+# Test with a string containing only spaces
+>>> text_indentation("   ")
+
+# Test with consecutive delimiters (the logical output)
+>>> text_indentation("Wait... what?!")
+Wait.
+<BLANKLINE>
+.
+<BLANKLINE>
+.
+<BLANKLINE>
+what?
+<BLANKLINE>
+!
+
+# Test TypeError for a non-string input (integer)
+>>> text_indentation(123)
+Traceback (most recent call last):
+    ...
+TypeError: text must be a string
+
+# Test TypeError for a non-string input (list)
+>>> text_indentation(["a", "b"])
+Traceback (most recent call last):
+    ...
+TypeError: text must be a string
+
+# Test with leading and trailing spaces in the input string
+>>> text_indentation("   Leading spaces. Trailing spaces   ")
+Leading spaces.
+<BLANKLINE>
+Trailing spaces
