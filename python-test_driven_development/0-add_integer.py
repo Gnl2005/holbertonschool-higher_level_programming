@@ -1,16 +1,23 @@
 #!/usr/bin/python3
 """
-This module provides a function that adds two integers.
-It ensures inputs are either integers or floats.
-If inputs are invalid, a TypeError is raised.
-Floats are first casted to integers before addition.
+This is the "add_integer" module.
+This module contains a function that adds two integers.
 """
 
 
 def add_integer(a, b=98):
-        """Add two integers or floats and return the result as integer."""
-            if ((not isinstance(a, int) and not isinstance(a, float))):
-                        raise TypeError("a must be an integer")
-                        if ((not isinstance(b, int) and not isinstance(b, float))):
-                                    raise TypeError("b must be an integer")
-                                    return (int(a) + int(b))
+    """Return the integer addition of a and b."""
+    if not isinstance(a, (int, float)):
+        raise TypeError("a must be an integer")
+    if not isinstance(b, (int, float)):
+        raise TypeError("b must be an integer")
+
+    # NaN yoxlaması
+    if a != a or b != b:
+        raise ValueError("cannot convert float NaN to integer")
+    
+    # Infinity yoxlaması
+    if a in (float('inf'), float('-inf')) or b in (float('inf'), float('-inf')):
+        raise OverflowError("cannot convert float infinity to integer")
+
+    return int(a) + int(b)
